@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Verlap II-3 - BSPS</title>
+  <style>
+    :root {
+      --primary: #004953;   /* Midnight Green */
+      --accent: #C3B091;    /* Khaki */
+      --light: #f9f9f9;
+      --dark: #333;
+    }
+    body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; background: var(--light); color: var(--dark);}
+    header { background: var(--primary); color: white; padding: 20px; text-align: center;}
+    header img { height: 70px; margin-bottom: 8px;}
+    header h1 { margin: 0; font-size: 22px;}
+    header p { margin: 0; font-size: 14px; color: var(--accent);}
+    form { background: #fff; padding: 25px; border-radius: 12px; max-width: 950px; margin: 20px auto; box-shadow: 0 6px 16px rgba(0,0,0,0.1);}
+    fieldset { margin-top: 20px; padding: 20px; border-radius: 10px; border: 2px solid var(--accent); background: #fafafa;}
+    legend { font-weight: bold; padding: 0 10px; color: var(--primary);}
+    label { display: block; margin-top: 12px; font-weight: bold; color: var(--primary);}
+    .inline { display: flex; flex-direction: column; margin-top: 8px; gap: 6px; }
+    .inline label { font-weight: normal; }
+    button { margin-top: 25px; width: 100%; padding: 14px; background: var(--primary); color: white; font-weight: bold; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;}
+    button:hover { background: var(--accent); color: var(--primary);}
+    #loading { display:none; margin-top:15px; text-align:center; color:var(--primary); font-weight:bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="1.png" alt="Logo KemenPKP">
+    <h1>Form Verifikasi Penerima Bantuan (II-3)</h1>
+    <p>Kementerian Perumahan dan Kawasan Permukiman</p>
+  </header>
+
+  <form id="verlapForm" enctype="multipart/form-data">
+
+    <!-- Checklist Kondisi Rumah -->
+    <fieldset>
+      <legend>Checklist Kondisi Rumah</legend>
+
+      <!-- Struktur -->
+      <h3>1. Struktur</h3>
+      <label>Pondasi:</label>
+      <div class="inline">
+        <label><input type="radio" name="pondasi" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
+        <label><input type="radio" name="pondasi" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
+        <label><input type="radio" name="pondasi" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
+      </div>
+
+      <label>Sloof / Balok Bawah:</label>
+      <div class="inline">
+        <label><input type="radio" name="sloof" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
+        <label><input type="radio" name="sloof" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
+        <label><input type="radio" name="sloof" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
+      </div>
+
+      <label>Kolom:</label>
+      <div class="inline">
+        <label><input type="radio" name="kolom" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
+        <label><input type="radio" name="kolom" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
+        <label><input type="radio" name="kolom" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
+      </div>
+
+      <label>Ring Balok:</label>
+      <div class="inline">
+        <label><input type="radio" name="ring_balok" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
+        <label><input type="radio" name="ring_balok" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
+        <label><input type="radio" name="ring_balok" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
+      </div>
+
+      <label>Rangka Atap:</label>
+      <div class="inline">
+        <label><input type="radio" name="rangka_atap" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
+        <label><input type="radio" name="rangka_atap" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
+        <label><input type="radio" name="rangka_atap" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
+      </div>
+
+      <!-- Non-Struktur -->
+      <h3>2. Non-Struktur</h3>
+      <label>Dinding:</label>
+      <div class="inline">
+        <label><input type="radio" name="dinding" value="A - tembok permanen, kondisi baik"> A - tembok permanen, kondisi baik</label>
+        <label><input type="radio" name="dinding" value="B - tembok sebagian rusak / semi permanen"> B - tembok sebagian rusak / semi permanen</label>
+        <label><input type="radio" name="dinding" value="C - anyaman bambu/triplek tipis"> C - anyaman bambu/triplek tipis</label>
+      </div>
+
+      <label>Lantai:</label>
+      <div class="inline">
+        <label><input type="radio" name="lantai" value="A - keramik/plester, kondisi baik"> A - keramik/plester, kondisi baik</label>
+        <label><input type="radio" name="lantai" value="B - plester sebagian rusak, belum keramik"> B - plester sebagian rusak, belum keramik</label>
+        <label><input type="radio" name="lantai" value="C - tanah / papan rapuh"> C - tanah / papan rapuh</label>
+      </div>
+
+      <label>Penutup Atap:</label>
+      <div class="inline">
+        <label><input type="radio" name="atap" value="A - genteng, baik, tidak bocor"> A - genteng, baik, tidak bocor</label>
+        <label><input type="radio" name="atap" value="B - genteng/seng/asbes, sebagian rusak, bocor"> B - genteng/seng/asbes, sebagian rusak, bocor</label>
+        <label><input type="radio" name="atap" value="C - daun/seng rusak, bocor parah"> C - daun/seng rusak, bocor parah</label>
+      </div>
+
+      <!-- Kesehatan & Kecukupan Luas -->
+      <h3>3. Kesehatan & Kecukupan Luas</h3>
+      <label>Akses Air Minum:</label>
+      <div class="inline">
+        <label><input type="radio" name="air" value="A - ada"> A - ada</label>
+        <label><input type="radio" name="air" value="B - ada, akses jauh/terbatas"> B - ada, akses jauh/terbatas</label>
+        <label><input type="radio" name="air" value="C - tidak ada"> C - tidak ada</label>
+      </div>
+
+      <label>Akses Sanitasi:</label>
+      <div class="inline">
+        <label><input type="radio" name="sanitasi" value="A - ada"> A - ada</label>
+        <label><input type="radio" name="sanitasi" value="B - ada, tidak dapat digunakan bersama"> B - ada, tidak dapat digunakan bersama</label>
+        <label><input type="radio" name="sanitasi" value="C - tidak ada"> C - tidak ada</label>
+      </div>
+
+      <label>Pencahayaan:</label>
+      <div class="inline">
+        <label><input type="radio" name="pencahayaan" value="A - cukup sesuai standar"> A - cukup sesuai standar</label>
+        <label><input type="radio" name="pencahayaan" value="B - kurang, terlalu sempit"> B - kurang, terlalu sempit</label>
+        <label><input type="radio" name="pencahayaan" value="C - tidak ada ventilasi"> C - tidak ada ventilasi</label>
+      </div>
+
+      <label>Penghawaan:</label>
+      <div class="inline">
+        <label><input type="radio" name="penghawaan" value="A - lancar, ventilasi cukup"> A - lancar, ventilasi cukup</label>
+        <label><input type="radio" name="penghawaan" value="B - kurang lancar, lembab"> B - kurang lancar, lembab</label>
+        <label><input type="radio" name="penghawaan" value="C - tidak ada ventilasi"> C - tidak ada ventilasi</label>
+      </div>
+
+      <label>Kecukupan Luas:</label>
+      <div class="inline">
+        <label><input type="radio" name="luas" value="A - ≥ 7.2 m²/jiwa"> A - ≥ 7.2 m²/jiwa</label>
+        <label><input type="radio" name="luas" value="B - < 7.2 m²/jiwa"> B - < 7.2 m²/jiwa</label>
+      </div>
+
+      <!-- Status Lahan -->
+      <h3>4. Status Lahan</h3>
+      <div class="inline">
+        <label><input type="radio" name="status_lahan" value="A - milik sendiri, ada bukti sah"> A - milik sendiri, ada bukti sah</label>
+        <label><input type="radio" name="status_lahan" value="B - sewa/menumpang, ada bukti sah"> B - sewa/menumpang, ada bukti sah</label>
+        <label><input type="radio" name="status_lahan" value="C - tanpa bukti sah/ilegal"> C - tanpa bukti sah/ilegal</label>
+      </div>
+    </fieldset>
+
+    <button type="submit">Kirim Data</button>
+    <div id="loading">⏳ Mengirim data, mohon tunggu...</div>
+  </form>
+
+  <script>
+    const form = document.getElementById("verlapForm");
+    const loading = document.getElementById("loading");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const scriptURL = "PASTE_YOUR_APPS_SCRIPT_URL"; // ganti dengan URL Web App dari Apps Script
+
+      loading.style.display = "block";
+
+      try {
+        const res = await fetch(scriptURL, { method: "POST", body: formData });
+        const txt = await res.text();
+        loading.style.display = "none";
+
+        if (txt.includes("SUCCESS")) {
+          alert("✅ Data berhasil dikirim!");
+          form.reset();
+        } else {
+          alert("❌ Gagal: " + txt);
+        }
+      } catch (err) {
+        loading.style.display = "none";
+        alert("⚠️ Error: " + err);
+      }
+    });
+  </script>
+</body>
+</html>
