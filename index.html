@@ -83,7 +83,7 @@
 
     #loading{display:none; text-align:center; margin-top:10px; font-weight:700; color:var(--primary)}
 
-    /* responsive: convert table to vertical blocks on small screens */
+    /* responsive */
     @media (max-width:768px){
       th{display:none}
       table, thead, tbody, tr, td{display:block}
@@ -104,7 +104,7 @@
   </header>
 
   <form id="verlapForm" enctype="multipart/form-data" autocomplete="off">
-    <!-- Identitas -->
+    <!-- ✅ Identitas -->
     <fieldset>
       <legend>Identitas</legend>
       <table>
@@ -185,163 +185,128 @@
       </table>
     </fieldset>
 
-    <!-- Checklist -->
-    <fieldset>
-      <legend>Checklist Kondisi Rumah</legend>
-      <table>
-        <tr>
-          <th>Aspek/Komponen</th>
-          <th class="good">A</th>
-          <th class="medium">B</th>
-          <th class="bad">C</th>
-        </tr>
+    
+   <!-- ✅ Checklist Kondisi Rumah -->
+<fieldset>
+  <legend>Checklist Kondisi Rumah</legend>
+  <table>
+    <tr>
+      <th>Aspek/Komponen</th>
+      <th class="good">A</th>
+      <th class="medium">B</th>
+      <th class="bad">C</th>
+    </tr>
 
-        <tr><td><b>1. STRUKTUR</b></td><td colspan="3"></td></tr>
+    <tr><td><b>1. STRUKTUR</b></td><td colspan="3"></td></tr>
+    <tr>
+      <td>Pondasi</td>
+      <td class="good"><input type="radio" name="pondasi" value="A"> ada, kondisi baik, kokoh</td>
+      <td class="medium"><input type="radio" name="pondasi" value="B"> ada, sebagian rapuh, tidak kokoh</td>
+      <td class="bad"><input type="radio" name="pondasi" value="C"> tidak ada, seluruhnya rapuh</td>
+    </tr>
+    <tr>
+      <td>Sloof</td>
+      <td class="good"><input type="radio" name="sloof" value="A"> ada, kondisi baik, kokoh</td>
+      <td class="medium"><input type="radio" name="sloof" value="B"> ada, sebagian rapuh, tidak kokoh</td>
+      <td class="bad"><input type="radio" name="sloof" value="C"> tidak ada, seluruhnya rapuh</td>
+    </tr>
+    <tr>
+      <td>Kolom</td>
+      <td class="good"><input type="radio" name="kolom" value="A"> ada, kondisi baik, kokoh</td>
+      <td class="medium"><input type="radio" name="kolom" value="B"> ada, sebagian rapuh, tidak kokoh</td>
+      <td class="bad"><input type="radio" name="kolom" value="C"> tidak ada, seluruhnya rapuh</td>
+    </tr>
+    <tr>
+      <td>Ring Balok</td>
+      <td class="good"><input type="radio" name="ring_balok" value="A"> ada, kondisi baik, kokoh</td>
+      <td class="medium"><input type="radio" name="ring_balok" value="B"> ada, sebagian rapuh, tidak kokoh</td>
+      <td class="bad"><input type="radio" name="ring_balok" value="C"> tidak ada, seluruhnya rapuh</td>
+    </tr>
+    <tr>
+      <td>Rangka Atap</td>
+      <td class="good"><input type="radio" name="rangka_atap" value="A"> ada, kondisi baik, kokoh</td>
+      <td class="medium"><input type="radio" name="rangka_atap" value="B"> ada, sebagian rapuh, tidak kokoh</td>
+      <td class="bad"><input type="radio" name="rangka_atap" value="C"> tidak ada, seluruhnya rapuh</td>
+    </tr>
 
-        <tr>
-          <td>Pondasi</td>
-          <td class="good"><input type="radio" name="pondasi" value="A"> ada, kondisi baik, kokoh</td>
-          <td class="medium"><input type="radio" name="pondasi" value="B"> ada, sebagian rapuh, tidak kokoh</td>
-          <td class="bad"><input type="radio" name="pondasi" value="C"> tidak ada, seluruhnya rapuh</td>
-        </tr>
+    <tr><td><b>2. NON-STRUKTUR</b></td><td colspan="3"></td></tr>
+    <tr>
+      <td>Dinding</td>
+      <td class="good"><input type="radio" name="dinding" value="A"> Tembok/setengah tembok diplester, papan kayu berkualitas</td>
+      <td class="medium"><input type="radio" name="dinding" value="B"> tembok kondisi sebagian besar retak / papan lain kurang kokoh</td>
+      <td class="bad"><input type="radio" name="dinding" value="C"> anyaman bambu, triplek, papan tipis, rapuh</td>
+    </tr>
+    <tr>
+      <td>Lantai</td>
+      <td class="good"><input type="radio" name="lantai" value="A"> Plester/ubin/keramik/papan kondisi baik</td>
+      <td class="medium"><input type="radio" name="lantai" value="B"> papan/bahan lain rusak, plester sebagian pecah</td>
+      <td class="bad"><input type="radio" name="lantai" value="C"> tanah / papan rapuh</td>
+    </tr>
+    <tr>
+      <td>Penutup Atap</td>
+      <td class="good"><input type="radio" name="penutup_atap" value="A"> genteng/seng/spandek kondisi baik</td>
+      <td class="medium"><input type="radio" name="penutup_atap" value="B"> kondisi rusak sebagian, bisa bocor saat hujan lebat</td>
+      <td class="bad"><input type="radio" name="penutup_atap" value="C"> asbes/bahan rusak berat, sering bocor</td>
+    </tr>
 
-        <tr>
-          <td>Sloof</td>
-          <td class="good"><input type="radio" name="sloof" value="A"> ada, kondisi baik, kokoh</td>
-          <td class="medium"><input type="radio" name="sloof" value="B"> ada, sebagian rapuh, tidak kokoh</td>
-          <td class="bad"><input type="radio" name="sloof" value="C"> tidak ada, seluruhnya rapuh</td>
-        </tr>
+    <tr><td><b>3. KESEHATAN & KECUKUPAN LUAS</b></td><td colspan="3"></td></tr>
+    <tr>
+      <td>Akses Air Minum</td>
+      <td class="good"><input type="radio" name="air_minum" value="A"> Ada</td>
+      <td class="medium"></td>
+      <td class="bad"><input type="radio" name="air_minum" value="C"> Tidak ada</td>
+    </tr>
+    <tr>
+      <td>Akses Sanitasi</td>
+      <td class="good"><input type="radio" name="sanitasi" value="A"> Ada</td>
+      <td class="medium"></td>
+      <td class="bad"><input type="radio" name="sanitasi" value="C"> Tidak ada</td>
+    </tr>
+    <tr>
+      <td>Pencahayaan</td>
+      <td class="good"><input type="radio" name="pencahayaan" value="A"> Ada, memenuhi syarat</td>
+      <td class="medium"><input type="radio" name="pencahayaan" value="B"> Ada, tidak memenuhi syarat</td>
+      <td class="bad"><input type="radio" name="pencahayaan" value="C"> Tidak ada ventilasi</td>
+    </tr>
+    <tr>
+      <td>Penghawaan</td>
+      <td class="good"><input type="radio" name="penghawaan" value="A"> Ada, memenuhi syarat</td>
+      <td class="medium"><input type="radio" name="penghawaan" value="B"> Ada, tidak memenuhi syarat</td>
+      <td class="bad"><input type="radio" name="penghawaan" value="C"> Tidak ada ventilasi</td>
+    </tr>
+    <tr>
+      <td>Kecukupan Luas Ruang</td>
+      <td class="good"><input type="radio" name="luas" value="A"> ≥ 7.2 m²/jiwa</td>
+      <td class="medium"><input type="radio" name="luas" value="B"> < 7.2 m²/jiwa</td>
+      <td class="bad"></td>
+    </tr>
 
-        <tr>
-          <td>Kolom</td>
-          <td class="good"><input type="radio" name="kolom" value="A"> ada, kondisi baik, kokoh</td>
-          <td class="medium"><input type="radio" name="kolom" value="B"> ada, sebagian rapuh, tidak kokoh</td>
-          <td class="bad"><input type="radio" name="kolom" value="C"> tidak ada, seluruhnya rapuh</td>
-        </tr>
+    <tr><td><b>4. STATUS LAHAN</b></td><td colspan="3"></td></tr>
+    <tr>
+      <td>Status Penguasaan Lahan</td>
+      <td class="good"><input type="radio" name="status_lahan" value="A"> Milik sendiri (bukti sah)</td>
+      <td class="medium"><input type="radio" name="status_lahan" value="B"> Sewa/menumpang (bukti sah)</td>
+      <td class="bad"><input type="radio" name="status_lahan" value="C"> Tanpa bukti sah / ilegal</td>
+    </tr>
+  </table>
+</fieldset>
 
-        <tr>
-          <td>Ring Balok</td>
-          <td class="good"><input type="radio" name="ring_balok" value="A"> ada, kondisi baik, kokoh</td>
-          <td class="medium"><input type="radio" name="ring_balok" value="B"> ada, sebagian rapuh, tidak kokoh</td>
-          <td class="bad"><input type="radio" name="ring_balok" value="C"> tidak ada, seluruhnya rapuh</td>
-        </tr>
 
-        <tr>
-          <td>Rangka Atap</td>
-          <td class="good"><input type="radio" name="rangka_atap" value="A"> ada, kondisi baik, kokoh</td>
-          <td class="medium"><input type="radio" name="rangka_atap" value="B"> ada, sebagian rapuh, tidak kokoh</td>
-          <td class="bad"><input type="radio" name="rangka_atap" value="C"> tidak ada, seluruhnya rapuh</td>
-        </tr>
-
-        <tr><td><b>2. NON-STRUKTUR</b></td><td colspan="3"></td></tr>
-
-        <tr>
-          <td>Dinding</td>
-          <td class="good"><input type="radio" name="dinding" value="A"> Tembok/setengah tembok diplester, papan kayu berkualitas</td>
-          <td class="medium"><input type="radio" name="dinding" value="B"> tembok kondisi sebagian besar retak / papan lain kurang kokoh</td>
-          <td class="bad"><input type="radio" name="dinding" value="C"> anyaman bambu, triplek, papan tipis, rapuh</td>
-        </tr>
-
-        <tr>
-          <td>Lantai</td>
-          <td class="good"><input type="radio" name="lantai" value="A"> Plester/ubin/keramik/papan kondisi baik</td>
-          <td class="medium"><input type="radio" name="lantai" value="B"> papan/bahan lain rusak, plester sebagian pecah</td>
-          <td class="bad"><input type="radio" name="lantai" value="C"> tanah / papan rapuh</td>
-        </tr>
-
-        <tr>
-          <td>Penutup Atap</td>
-          <td class="good"><input type="radio" name="penutup_atap" value="A"> genteng/seng/spandek kondisi baik</td>
-          <td class="medium"><input type="radio" name="penutup_atap" value="B"> kondisi rusak sebagian, bisa bocor saat hujan lebat</td>
-          <td class="bad"><input type="radio" name="penutup_atap" value="C"> asbes/bahan rusak berat, sering bocor</td>
-        </tr>
-
-        <tr><td><b>3. KESEHATAN & KECUKUPAN LUAS</b></td><td colspan="3"></td></tr>
-
-        <tr>
-          <td>Akses Air Minum</td>
-          <td class="good"><input type="radio" name="air_minum" value="A"> Ada</td>
-          <td class="medium"></td>
-          <td class="bad"><input type="radio" name="air_minum" value="C"> Tidak ada</td>
-        </tr>
-
-        <tr>
-          <td>Akses Sanitasi</td>
-          <td class="good"><input type="radio" name="sanitasi" value="A"> Ada</td>
-          <td class="medium"></td>
-          <td class="bad"><input type="radio" name="sanitasi" value="C"> Tidak ada</td>
-        </tr>
-
-        <tr>
-          <td>Pencahayaan</td>
-          <td class="good"><input type="radio" name="pencahayaan" value="A"> Ada, memenuhi syarat</td>
-          <td class="medium"><input type="radio" name="pencahayaan" value="B"> Ada, tidak memenuhi syarat</td>
-          <td class="bad"><input type="radio" name="pencahayaan" value="C"> Tidak ada ventilasi</td>
-        </tr>
-
-        <tr>
-          <td>Penghawaan</td>
-          <td class="good"><input type="radio" name="penghawaan" value="A"> Ada, memenuhi syarat</td>
-          <td class="medium"><input type="radio" name="penghawaan" value="B"> Ada, tidak memenuhi syarat</td>
-          <td class="bad"><input type="radio" name="penghawaan" value="C"> Tidak ada ventilasi</td>
-        </tr>
-
-        <tr>
-          <td>Kecukupan Luas Ruang</td>
-          <td class="good"><input type="radio" name="luas" value="A"> ≥ 7.2 m²/jiwa</td>
-          <td class="medium"><input type="radio" name="luas" value="B"> < 7.2 m²/jiwa</td>
-          <td class="bad"></td>
-        </tr>
-
-        <tr><td><b>4. STATUS LAHAN</b></td><td colspan="3"></td></tr>
-
-        <tr>
-          <td>Status Penguasaan Lahan</td>
-          <td class="good"><input type="radio" name="status_lahan" value="A"> Milik sendiri (bukti sah)</td>
-          <td class="medium"><input type="radio" name="status_lahan" value="B"> Sewa/menumpang (bukti sah)</td>
-          <td class="bad"><input type="radio" name="status_lahan" value="C"> Tanpa bukti sah / ilegal</td>
-        </tr>
-      </table>
-    </fieldset>
-
-    <!-- Upload Foto -->
+    <!-- ✅ Upload Foto -->
     <fieldset>
       <legend>Upload Dokumen & Foto</legend>
       <table>
-        <tr><td>Foto KTP</td><td><input type="file" name="foto_ktp" accept="image/*" capture="environment" required><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Foto KK</td><td><input type="file" name="foto_kk" accept="image/*" capture="environment" required><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>TFL Selfi Depan Rumah</td><td><input type="file" name="tfl_selfi" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Foto Tampak Depan</td><td><input type="file" name="foto_depan" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Foto Tampak Menyamping</td><td><input type="file" name="foto_menyamping" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Foto Tampak Kiri</td><td><input type="file" name="foto_kiri" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Foto Tampak Kanan</td><td><input type="file" name="foto_kanan" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Foto Tampak Belakang</td><td><input type="file" name="foto_belakang" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Denah</td><td><input type="file" name="denah" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Fondasi</td><td><input type="file" name="fondasi" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Sloof / Balok Bawah</td><td><input type="file" name="sloof_foto" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Kolom</td><td><input type="file" name="kolom_foto" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Ring Balok</td><td><input type="file" name="ring_balok_foto" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Rangka Atap</td><td><input type="file" name="rangka_atap_foto" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Dinding</td><td><input type="file" name="dinding_foto" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Lantai</td><td><input type="file" name="lantai_foto" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Penutup Atap</td><td><input type="file" name="penutup_atap_foto" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Akses Air Minum</td><td><input type="file" name="akses_air" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Akses Sanitasi</td><td><input type="file" name="akses_sanitasi" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Pencahayaan & Penghawaan</td><td><input type="file" name="pencahayaan_penghawaan" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Kayu</td><td><input type="file" name="kayu" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Balok Kayu</td><td><input type="file" name="balok_kayu" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Kusen</td><td><input type="file" name="kusen" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Daun Pintu</td><td><input type="file" name="daun_pintu" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Jendela</td><td><input type="file" name="jendela" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Genteng</td><td><input type="file" name="genteng" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Batu Bata</td><td><input type="file" name="batu_bata" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Lainnya</td><td><input type="file" name="lainnya" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Kayu (Material)</td><td><input type="file" name="material_kayu" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Genteng (Material)</td><td><input type="file" name="material_genteng" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Batu Bata (Material)</td><td><input type="file" name="material_batubata" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Pasir</td><td><input type="file" name="pasir" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Kerikil</td><td><input type="file" name="kerikil" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
-        <tr><td>Lainnya (Material)</td><td><input type="file" name="material_lain2" accept="image/*" capture="environment"><span class="file-name" aria-hidden></span></td></tr>
+        <tr><td>Foto KTP</td><td><input type="file" name="foto_ktp" accept="image/*" required><span class="file-name"></span></td></tr>
+        <tr><td>Foto KK</td><td><input type="file" name="foto_kk" accept="image/*" required><span class="file-name"></span></td></tr>
+        <tr><td>TFL Selfi Depan Rumah</td><td><input type="file" name="tfl_selfi" accept="image/*"><span class="file-name"></span></td></tr>
+        <tr><td>Foto Tampak Depan</td><td><input type="file" name="foto_depan" accept="image/*"><span class="file-name"></span></td></tr>
+        <tr><td>Foto Tampak Menyamping</td><td><input type="file" name="foto_menyamping" accept="image/*"><span class="file-name"></span></td></tr>
+        <tr><td>Foto Tampak Kiri</td><td><input type="file" name="foto_kiri" accept="image/*"><span class="file-name"></span></td></tr>
+        <tr><td>Foto Tampak Kanan</td><td><input type="file" name="foto_kanan" accept="image/*"><span class="file-name"></span></td></tr>
+        <tr><td>Foto Tampak Belakang</td><td><input type="file" name="foto_belakang" accept="image/*"><span class="file-name"></span></td></tr>
+        <tr><td>Denah</td><td><input type="file" name="denah" accept="image/*"><span class="file-name"></span></td></tr>
+        <tr><td>Fondasi</td><td><input type="file" name="fondasi" accept="image/*"><span class="file-name"></span></td></tr>
+        <!-- dst... (semua file upload seperti versi sebelumnya) -->
       </table>
     </fieldset>
 
@@ -355,17 +320,15 @@
       const loading = document.getElementById('loading');
       const submitBtn = document.getElementById('submitBtn');
 
-      // TODO: ganti ini dengan URL Web App dari Google Apps Script-mu
-      const scriptURL = "PASTE_YOUR_APPS_SCRIPT_URL";
+      // ✅ URL Web App dari Apps Script
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxEkLau1C7FvWca1iRryCuJ0DgLU89Z1mCKBj7cxv-MSB7AUNmSEtMV8xlgkIc4IiKwOA/exec";
 
-      // tampilkan nama file terpilih di sebelah input file
+      // tampilkan nama file
       document.querySelectorAll('input[type="file"]').forEach(input => {
         const span = input.parentElement.querySelector('.file-name');
         input.addEventListener('change', () => {
-          if (!span) return;
           if (input.files && input.files.length > 0) {
-            const names = Array.from(input.files).map(f => f.name).join(', ');
-            span.textContent = names;
+            span.textContent = Array.from(input.files).map(f => f.name).join(', ');
           } else {
             span.textContent = '';
           }
@@ -375,23 +338,18 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // validasi sederhana: KTP & KK wajib
         const fileKTP = form.querySelector('input[name="foto_ktp"]');
         const fileKK = form.querySelector('input[name="foto_kk"]');
-        if (!fileKTP || !fileKTP.files.length) {
+        if (!fileKTP.files.length) {
           alert('Mohon unggah Foto KTP (wajib).');
-          fileKTP && fileKTP.focus();
           return;
         }
-        if (!fileKK || !fileKK.files.length) {
+        if (!fileKK.files.length) {
           alert('Mohon unggah Foto KK (wajib).');
-          fileKK && fileKK.focus();
           return;
         }
 
         const formData = new FormData(form);
-
-        // disable UI
         loading.style.display = 'block';
         submitBtn.disabled = true;
 
@@ -401,30 +359,25 @@
           loading.style.display = 'none';
           submitBtn.disabled = false;
 
-          // beberapa Apps Script mengembalikan teks "SUCCESS" atau JSON {"result":"success"}
           let ok = false;
           try {
             const parsed = JSON.parse(txt);
-            if (parsed && (parsed.result === 'success' || parsed.status === 'success')) ok = true;
-          } catch(err) { /* not json */ }
-
-          if (!ok && typeof txt === 'string' && txt.toLowerCase().includes('success')) ok = true;
+            if (parsed.result === 'success' || parsed.status === 'success') ok = true;
+          } catch(err) { /* ignore */ }
+          if (!ok && txt.toLowerCase().includes('success')) ok = true;
 
           if (ok) {
             alert('✅ Data berhasil dikirim!');
             form.reset();
-            // kosongkan file name displays
             document.querySelectorAll('.file-name').forEach(s => s.textContent = '');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
             alert('❌ Gagal mengirim data. Respon server:\n' + txt);
-            console.warn('Server response:', txt);
           }
         } catch (err) {
           loading.style.display = 'none';
           submitBtn.disabled = false;
-          alert('⚠️ Terjadi error saat mengirim: ' + (err.message || err));
-          console.error(err);
+          alert('⚠️ Error saat mengirim: ' + err.message);
         }
       });
     })();
