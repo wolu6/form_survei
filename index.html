@@ -1,227 +1,195 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Form Verlap II-3 - BSPS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Survei Kondisi Rumah</title>
   <style>
-    :root{
-      --primary:#004953;
-      --accent:#C3B091;
-      --light:#f9f9f9;
-      --dark:#333;
-      --good:#d4edda;
-      --medium:#fff3cd;
-      --bad:#f8d7da;
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+    h2 { background: #4CAF50; color: white; padding: 10px; border-radius: 5px; }
+    fieldset { margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+    legend { font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; font-size: 14px; }
+    th { background: #eee; }
+    .good { background: #d4edda; }
+    .medium { background: #fff3cd; }
+    .bad { background: #f8d7da; }
+    input[type="text"], input[type="number"], input[type="file"], select {
+      width: 100%; padding: 6px; margin: 4px 0; border: 1px solid #ccc; border-radius: 4px;
     }
-    *{box-sizing:border-box}
-    body{
-      font-family:"Segoe UI",Arial,sans-serif;
-      margin:0;
-      background:var(--light);
-      color:var(--dark);
-      -webkit-font-smoothing:antialiased;
-    }
-    header{
-      background:var(--primary);
-      color:#fff;
-      text-align:center;
-      padding:18px 12px;
-    }
-    header img{height:70px; display:block; margin:0 auto 8px}
-    header h1{margin:0; font-size:20px}
-    header p{margin:0; font-size:13px; color:var(--accent)}
-
-    form{
-      background:#fff;
-      max-width:1100px;
-      margin:24px auto;
-      padding:22px;
-      border-radius:12px;
-      box-shadow:0 6px 16px rgba(0,0,0,0.08);
-    }
-    fieldset{
-      margin-top:18px;
-      padding:16px;
-      border-radius:10px;
-      border:2px solid var(--accent);
-    }
-    legend{font-weight:bold; color:var(--primary); padding:0 8px}
-    label{font-weight:bold; color:var(--primary); display:block; margin-bottom:6px}
-    input[type="text"], input[type="number"], select, textarea{
-      width:100%;
-      padding:6px 8px;
-      border:1px solid #ccc;
-      border-radius:6px;
-      font-size:14px;
-    }
-    textarea{min-height:80px; resize:vertical}
-
-    table{width:100%; border-collapse:collapse; margin-top:12px}
-    th, td{border:1px solid #aaa; padding:8px; font-size:13px; vertical-align:top; text-align:left}
-    th{background:var(--accent); color:var(--primary); text-align:center}
-    .good{background:var(--good)}
-    .medium{background:var(--medium)}
-    .bad{background:var(--bad)}
-
-    .file-name{display:block; margin-top:6px; font-size:12px; color:#555}
-
-    button{
-      margin-top:18px;
-      width:100%;
-      padding:14px;
-      background:var(--primary);
-      color:#fff;
-      font-weight:700;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      font-size:16px;
-    }
-    button[disabled]{opacity:0.6; cursor:not-allowed}
-    button:hover{background:var(--accent); color:var(--primary)}
-
-    #loading{display:none; text-align:center; margin-top:10px; font-weight:700; color:var(--primary)}
-
-    @media (max-width:768px){
-      th{display:none}
-      table, thead, tbody, tr, td{display:block}
-      td{border: none; border-bottom:1px solid #eee; padding:10px 6px}
-      td > label{margin-bottom:6px}
-      td:first-child{font-weight:700}
-      header img{height:56px}
-      header h1{font-size:18px}
-      form{margin:12px; padding:16px}
-    }
+    button { padding: 10px 15px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #45a049; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="1.png" alt="Logo KemenPKP">
-    <h1>Form Verifikasi Penerima Bantuan (II-3)</h1>
-    <p>Kementerian Perumahan dan Kawasan Permukiman</p>
-  </header>
 
-  <form id="verlapForm" enctype="multipart/form-data" autocomplete="off">
-    <!-- ✅ Identitas -->
-    <fieldset>
-      <legend>Identitas</legend>
-      <table>
-        <tr><td>Nama KK</td><td><input type="text" name="nama" required></td><td>NIK</td><td><input type="text" name="nik"></td></tr>
-        <tr><td>No KK</td><td><input type="text" name="kk"></td><td>Jenis Kelamin</td><td><select name="jk"><option>L</option><option>P</option></select></td></tr>
-        <tr><td>Umur</td><td><input type="number" name="umur"></td><td>Alamat</td><td><input type="text" name="alamat"></td></tr>
-        <tr><td>RT/RW</td><td><input type="text" name="rt_rw"></td><td>Desa</td><td><input type="text" name="desa"></td></tr>
-        <tr><td>Kecamatan</td><td><input type="text" name="kecamatan"></td><td>Kabupaten/Kota</td><td><input type="text" name="kabupaten"></td></tr>
-        <tr><td>Provinsi</td><td><input type="text" name="provinsi"></td><td></td><td></td></tr>
-      </table>
-    </fieldset>
+<h2>Form Survei Kondisi Rumah</h2>
 
-    <!-- ✅ Checklist Kondisi Rumah -->
-    <fieldset>
-      <legend>Checklist Kondisi Rumah</legend>
-      <table>
-        <tr>
-          <th>Komponen</th>
-          <th class="good">A</th>
-          <th class="medium">B</th>
-          <th class="bad">C</th>
-        </tr>
-        <tr><td>Pondasi</td><td><input type="radio" name="pondasi" value="A"> Baik</td><td><input type="radio" name="pondasi" value="B"> Kurang</td><td><input type="radio" name="pondasi" value="C"> Buruk</td></tr>
-        <tr><td>Sloof</td><td><input type="radio" name="sloof" value="A"> Baik</td><td><input type="radio" name="sloof" value="B"> Kurang</td><td><input type="radio" name="sloof" value="C"> Buruk</td></tr>
-        <tr><td>Kolom</td><td><input type="radio" name="kolom" value="A"> Baik</td><td><input type="radio" name="kolom" value="B"> Kurang</td><td><input type="radio" name="kolom" value="C"> Buruk</td></tr>
-        <tr><td>Ring Balok</td><td><input type="radio" name="ring_balok" value="A"> Baik</td><td><input type="radio" name="ring_balok" value="B"> Kurang</td><td><input type="radio" name="ring_balok" value="C"> Buruk</td></tr>
-        <tr><td>Rangka Atap</td><td><input type="radio" name="rangka_atap" value="A"> Baik</td><td><input type="radio" name="rangka_atap" value="B"> Kurang</td><td><input type="radio" name="rangka_atap" value="C"> Buruk</td></tr>
-        <tr><td>Dinding</td><td><input type="radio" name="dinding" value="A"> Baik</td><td><input type="radio" name="dinding" value="B"> Kurang</td><td><input type="radio" name="dinding" value="C"> Buruk</td></tr>
-        <tr><td>Lantai</td><td><input type="radio" name="lantai" value="A"> Baik</td><td><input type="radio" name="lantai" value="B"> Kurang</td><td><input type="radio" name="lantai" value="C"> Buruk</td></tr>
-        <tr><td>Penutup Atap</td><td><input type="radio" name="penutup_atap" value="A"> Baik</td><td><input type="radio" name="penutup_atap" value="B"> Kurang</td><td><input type="radio" name="penutup_atap" value="C"> Buruk</td></tr>
-        <tr><td>Akses Air Minum</td><td><input type="radio" name="air_minum" value="A"> Ada</td><td></td><td><input type="radio" name="air_minum" value="C"> Tidak ada</td></tr>
-        <tr><td>Akses Sanitasi</td><td><input type="radio" name="sanitasi" value="A"> Ada</td><td></td><td><input type="radio" name="sanitasi" value="C"> Tidak ada</td></tr>
-        <tr><td>Pencahayaan</td><td><input type="radio" name="pencahayaan" value="A"> Memenuhi</td><td><input type="radio" name="pencahayaan" value="B"> Kurang</td><td><input type="radio" name="pencahayaan" value="C"> Tidak ada</td></tr>
-        <tr><td>Penghawaan</td><td><input type="radio" name="penghawaan" value="A"> Memenuhi</td><td><input type="radio" name="penghawaan" value="B"> Kurang</td><td><input type="radio" name="penghawaan" value="C"> Tidak ada</td></tr>
-      </table>
-    </fieldset>
+<form id="surveyForm" enctype="multipart/form-data">
 
-    <!-- ✅ Upload Foto -->
-    <fieldset>
-      <legend>Upload Foto & Dokumen</legend>
-      <table>
-        <tr><td>Foto KTP</td><td><input type="file" name="foto_ktp" accept="image/*"></td></tr>
-        <tr><td>Foto KK</td><td><input type="file" name="foto_kk" accept="image/*"></td></tr>
-        <tr><td>TFL Selfi Depan Rumah</td><td><input type="file" name="tfl_selfi" accept="image/*"></td></tr>
-        <tr><td>Foto Tampak Depan</td><td><input type="file" name="foto_depan" accept="image/*"></td></tr>
-        <tr><td>Foto Tampak Menyamping</td><td><input type="file" name="foto_menyamping" accept="image/*"></td></tr>
-        <tr><td>Foto Tampak Kiri</td><td><input type="file" name="foto_kiri" accept="image/*"></td></tr>
-        <tr><td>Foto Tampak Kanan</td><td><input type="file" name="foto_kanan" accept="image/*"></td></tr>
-        <tr><td>Foto Tampak Belakang</td><td><input type="file" name="foto_belakang" accept="image/*"></td></tr>
-        <tr><td>Denah</td><td><input type="file" name="denah" accept="image/*"></td></tr>
-        <tr><td>Fondasi</td><td><input type="file" name="fondasi" accept="image/*"></td></tr>
-        <tr><td>Sloof / Balok Bawah</td><td><input type="file" name="sloof_foto" accept="image/*"></td></tr>
-        <tr><td>Kolom</td><td><input type="file" name="kolom_foto" accept="image/*"></td></tr>
-        <tr><td>Ring Balok</td><td><input type="file" name="ring_balok_foto" accept="image/*"></td></tr>
-        <tr><td>Rangka Atap</td><td><input type="file" name="rangka_atap_foto" accept="image/*"></td></tr>
-        <tr><td>Dinding</td><td><input type="file" name="dinding_foto" accept="image/*"></td></tr>
-        <tr><td>Lantai</td><td><input type="file" name="lantai_foto" accept="image/*"></td></tr>
-        <tr><td>Penutup Atap</td><td><input type="file" name="penutup_atap_foto" accept="image/*"></td></tr>
-        <tr><td>Akses Air Minum</td><td><input type="file" name="akses_air" accept="image/*"></td></tr>
-        <tr><td>Akses Sanitasi</td><td><input type="file" name="akses_sanitasi" accept="image/*"></td></tr>
-        <tr><td>Pencahayaan & Penghawaan</td><td><input type="file" name="pencahayaan_penghawaan" accept="image/*"></td></tr>
-        <tr><td>Kayu</td><td><input type="file" name="kayu" accept="image/*"></td></tr>
-        <tr><td>Balok Kayu</td><td><input type="file" name="balok_kayu" accept="image/*"></td></tr>
-        <tr><td>Kusen</td><td><input type="file" name="kusen" accept="image/*"></td></tr>
-        <tr><td>Daun Pintu</td><td><input type="file" name="daun_pintu" accept="image/*"></td></tr>
-        <tr><td>Jendela</td><td><input type="file" name="jendela" accept="image/*"></td></tr>
-        <tr><td>Genteng</td><td><input type="file" name="genteng" accept="image/*"></td></tr>
-        <tr><td>Batu Bata</td><td><input type="file" name="batu_bata" accept="image/*"></td></tr>
-        <tr><td>Lainnya</td><td><input type="file" name="lainnya" accept="image/*"></td></tr>
-        <tr><td>Kayu (Material)</td><td><input type="file" name="material_kayu" accept="image/*"></td></tr>
-        <tr><td>Genteng (Material)</td><td><input type="file" name="material_genteng" accept="image/*"></td></tr>
-        <tr><td>Batu Bata (Material)</td><td><input type="file" name="material_batubata" accept="image/*"></td></tr>
-        <tr><td>Pasir</td><td><input type="file" name="pasir" accept="image/*"></td></tr>
-        <tr><td>Kerikil</td><td><input type="file" name="kerikil" accept="image/*"></td></tr>
-        <tr><td>Lainnya (Material)</td><td><input type="file" name="material_lain2" accept="image/*"></td></tr>
-      </table>
-    </fieldset>
+  <!-- ✅ Identitas -->
+  <fieldset>
+    <legend>Identitas Responden</legend>
+    <label>Nama Lengkap:</label>
+    <input type="text" name="nama" required>
 
-    <button type="submit" id="submitBtn">Kirim Data</button>
-    <div id="loading">⏳ Mengirim data, mohon tunggu...</div>
-  </form>
+    <label>NIK:</label>
+    <input type="number" name="nik" required>
 
-  <script>
-    (function(){
-      const form = document.getElementById('verlapForm');
-      const loading = document.getElementById('loading');
-      const submitBtn = document.getElementById('submitBtn');
+    <label>Alamat:</label>
+    <input type="text" name="alamat" required>
 
-      // 🔹 Ganti dengan URL Web App Apps Script
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxEkLau1C7FvWca1iRryCuJ0DgLU89Z1mCKBj7cxv-MSB7AUNmSEtMV8xlgkIc4IiKwOA/exec";
+    <label>No. HP:</label>
+    <input type="text" name="no_hp">
+  </fieldset>
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+  <!-- ✅ Checklist Kondisi Rumah -->
+  <fieldset>
+    <legend>Checklist Kondisi Rumah</legend>
+    <table>
+      <tr>
+        <th>Komponen</th>
+        <th class="good">A</th>
+        <th class="medium">B</th>
+        <th class="bad">C</th>
+      </tr>
 
-        const formData = new FormData(form);
+      <!-- 1. STRUKTUR -->
+      <tr><td colspan="4"><b>1. STRUKTUR</b></td></tr>
+      <tr>
+        <td>Pondasi</td>
+        <td class="good"><input type="radio" name="pondasi" value="A"> Ada, kondisi baik, kokoh</td>
+        <td class="medium"><input type="radio" name="pondasi" value="B"> Ada, sebagian rapuh</td>
+        <td class="bad"><input type="radio" name="pondasi" value="C"> Tidak ada, seluruhnya rapuh</td>
+      </tr>
+      <tr>
+        <td>Sloof</td>
+        <td class="good"><input type="radio" name="sloof" value="A"> Ada, kondisi baik, kokoh</td>
+        <td class="medium"><input type="radio" name="sloof" value="B"> Ada, sebagian rapuh</td>
+        <td class="bad"><input type="radio" name="sloof" value="C"> Tidak ada, seluruhnya rapuh</td>
+      </tr>
+      <tr>
+        <td>Kolom</td>
+        <td class="good"><input type="radio" name="kolom" value="A"> Ada, kondisi baik, kokoh</td>
+        <td class="medium"><input type="radio" name="kolom" value="B"> Ada, sebagian rapuh</td>
+        <td class="bad"><input type="radio" name="kolom" value="C"> Tidak ada, seluruhnya rapuh</td>
+      </tr>
+      <tr>
+        <td>Ring Balok</td>
+        <td class="good"><input type="radio" name="ring_balok" value="A"> Ada, kondisi baik, kokoh</td>
+        <td class="medium"><input type="radio" name="ring_balok" value="B"> Ada, sebagian rapuh</td>
+        <td class="bad"><input type="radio" name="ring_balok" value="C"> Tidak ada, seluruhnya rapuh</td>
+      </tr>
+      <tr>
+        <td>Rangka Atap</td>
+        <td class="good"><input type="radio" name="rangka_atap" value="A"> Ada, kondisi baik, kokoh</td>
+        <td class="medium"><input type="radio" name="rangka_atap" value="B"> Ada, sebagian rapuh</td>
+        <td class="bad"><input type="radio" name="rangka_atap" value="C"> Tidak ada, seluruhnya rapuh</td>
+      </tr>
 
-        loading.style.display = 'block';
-        submitBtn.disabled = true;
+      <!-- 2. NON-STRUKTUR -->
+      <tr><td colspan="4"><b>2. NON-STRUKTUR</b></td></tr>
+      <tr>
+        <td>Dinding</td>
+        <td class="good"><input type="radio" name="dinding" value="A"> Tembok/bata, kokoh, tidak retak</td>
+        <td class="medium"><input type="radio" name="dinding" value="B"> Tembok/bata sebagian retak</td>
+        <td class="bad"><input type="radio" name="dinding" value="C"> Anyaman bambu/triplek, rapuh</td>
+      </tr>
+      <tr>
+        <td>Lantai</td>
+        <td class="good"><input type="radio" name="lantai" value="A"> Keramik/semen, baik</td>
+        <td class="medium"><input type="radio" name="lantai" value="B"> Semen, sebagian rusak</td>
+        <td class="bad"><input type="radio" name="lantai" value="C"> Tanah/papan lapuk</td>
+      </tr>
+      <tr>
+        <td>Penutup Atap</td>
+        <td class="good"><input type="radio" name="penutup_atap" value="A"> Genteng/seng/asbes, baik</td>
+        <td class="medium"><input type="radio" name="penutup_atap" value="B"> Sebagian bocor</td>
+        <td class="bad"><input type="radio" name="penutup_atap" value="C"> Daun/rumbia, lapuk</td>
+      </tr>
 
-        try {
-          const res = await fetch(scriptURL, { method: 'POST', body: formData });
-          const txt = await res.text();
-          loading.style.display = 'none';
-          submitBtn.disabled = false;
+      <!-- 3. KESEHATAN & KECUKUPAN LUAS -->
+      <tr><td colspan="4"><b>3. KESEHATAN & KECUKUPAN LUAS</b></td></tr>
+      <tr>
+        <td>Akses Air Minum</td>
+        <td class="good"><input type="radio" name="air_minum" value="A"> Ada</td>
+        <td class="medium"><input type="radio" name="air_minum" value="B"> Ada, dipakai bersama</td>
+        <td class="bad"><input type="radio" name="air_minum" value="C"> Tidak ada</td>
+      </tr>
+      <tr>
+        <td>Akses Sanitasi</td>
+        <td class="good"><input type="radio" name="sanitasi" value="A"> Ada</td>
+        <td class="medium"><input type="radio" name="sanitasi" value="B"> Ada, dipakai bersama</td>
+        <td class="bad"><input type="radio" name="sanitasi" value="C"> Tidak ada</td>
+      </tr>
+      <tr>
+        <td>Pencahayaan</td>
+        <td class="good"><input type="radio" name="pencahayaan" value="A"> Lancar, sesuai fungsi</td>
+        <td class="medium"><input type="radio" name="pencahayaan" value="B"> Kurang lancar</td>
+        <td class="bad"><input type="radio" name="pencahayaan" value="C"> Tidak ada, lembab</td>
+      </tr>
+      <tr>
+        <td>Penghawaan</td>
+        <td class="good"><input type="radio" name="penghawaan" value="A"> Lancar, sesuai fungsi</td>
+        <td class="medium"><input type="radio" name="penghawaan" value="B"> Kurang, agak pengap</td>
+        <td class="bad"><input type="radio" name="penghawaan" value="C"> Tidak ada, pengap</td>
+      </tr>
+      <tr>
+        <td>Kecukupan Luas</td>
+        <td class="good"><input type="radio" name="kecukupan_luas" value="A"> ≥ 9 m²/orang</td>
+        <td class="medium"><input type="radio" name="kecukupan_luas" value="B"> 7–9 m²/orang</td>
+        <td class="bad"><input type="radio" name="kecukupan_luas" value="C"> &lt; 7 m²/orang</td>
+      </tr>
 
-          if (txt.includes("SUCCESS")) {
-            alert("✅ Data berhasil dikirim!");
-            form.reset();
-          } else {
-            alert("❌ Gagal mengirim data: " + txt);
-          }
-        } catch (err) {
-          loading.style.display = 'none';
-          submitBtn.disabled = false;
-          alert("⚠️ Error: " + err.message);
-        }
-      });
-    })();
-  </script>
+      <!-- 4. STATUS LAHAN -->
+      <tr><td colspan="4"><b>4. STATUS LAHAN</b></td></tr>
+      <tr>
+        <td>Status Lahan</td>
+        <td class="good"><input type="radio" name="status_lahan" value="A"> SHM/SHGB/akta, bukti sah</td>
+        <td class="medium"><input type="radio" name="status_lahan" value="B"> Tanah adat/garapan, bukti sah</td>
+        <td class="bad"><input type="radio" name="status_lahan" value="C"> Tanpa bukti sah/sengketa</td>
+      </tr>
+    </table>
+  </fieldset>
+
+  <!-- ✅ Upload Foto -->
+  <fieldset>
+    <legend>Upload Foto (Kamera/Galeri)</legend>
+    <label>Foto KTP:</label>
+    <input type="file" name="foto_ktp" accept="image/*" capture="environment"><br>
+    <label>Foto KK:</label>
+    <input type="file" name="foto_kk" accept="image/*" capture="environment"><br>
+    <label>Selfie Depan Rumah:</label>
+    <input type="file" name="selfie_rumah" accept="image/*" capture="user"><br>
+    <label>Foto Tampak Depan:</label>
+    <input type="file" name="foto_depan" accept="image/*" capture="environment"><br>
+    <label>Foto Tampak Belakang:</label>
+    <input type="file" name="foto_belakang" accept="image/*" capture="environment"><br>
+  </fieldset>
+
+  <button type="submit">Kirim</button>
+</form>
+
+<script>
+document.getElementById("surveyForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+
+  fetch("PASTE_WEB_APP_URL_HERE", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.text())
+  .then(result => {
+    alert("Data berhasil dikirim!");
+    document.getElementById("surveyForm").reset();
+  })
+  .catch(error => {
+    alert("Terjadi error: " + error.message);
+  });
+});
+</script>
+
 </body>
 </html>
