@@ -16,12 +16,18 @@
     header img { height: 70px; margin-bottom: 8px;}
     header h1 { margin: 0; font-size: 22px;}
     header p { margin: 0; font-size: 14px; color: var(--accent);}
-    form { background: #fff; padding: 25px; border-radius: 12px; max-width: 950px; margin: 20px auto; box-shadow: 0 6px 16px rgba(0,0,0,0.1);}
+    form { background: #fff; padding: 25px; border-radius: 12px; max-width: 1100px; margin: 20px auto; box-shadow: 0 6px 16px rgba(0,0,0,0.1);}
     fieldset { margin-top: 20px; padding: 20px; border-radius: 10px; border: 2px solid var(--accent); background: #fafafa;}
     legend { font-weight: bold; padding: 0 10px; color: var(--primary);}
-    label { display: block; margin-top: 12px; font-weight: bold; color: var(--primary);}
-    .inline { display: flex; flex-direction: column; margin-top: 8px; gap: 6px; }
-    .inline label { font-weight: normal; }
+    label { font-weight: bold; color: var(--primary);}
+    input, select { width: 100%; padding: 6px 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;}
+    table.form-table { width: 100%; border-collapse: collapse;}
+    table.form-table td { padding: 6px 8px; vertical-align: top;}
+    table.form-table td:first-child { width: 20%; font-weight: bold; color: var(--primary);}
+    table.form-table td:nth-child(2) { width: 30%;}
+    table.form-table td:nth-child(3) { width: 20%; font-weight: bold; color: var(--primary);}
+    table.form-table td:nth-child(4) { width: 30%;}
+    table.upload-table td { padding: 8px; }
     button { margin-top: 25px; width: 100%; padding: 14px; background: var(--primary); color: white; font-weight: bold; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;}
     button:hover { background: var(--accent); color: var(--primary);}
     #loading { display:none; margin-top:15px; text-align:center; color:var(--primary); font-weight:bold; }
@@ -36,113 +42,107 @@
 
   <form id="verlapForm" enctype="multipart/form-data">
 
-    <!-- Checklist Kondisi Rumah -->
+    <!-- Identitas -->
     <fieldset>
-      <legend>Checklist Kondisi Rumah</legend>
+      <legend>Identitas Penerima</legend>
+      <table class="form-table">
+        <tr>
+          <td>Nama KK</td><td><input type="text" name="nama" required></td>
+          <td>Penghasilan KK per bulan (Rp)</td><td><input type="number" name="penghasilan"></td>
+        </tr>
+        <tr>
+          <td>NIK</td><td><input type="text" name="nik"></td>
+          <td>Nilai UMP / UMK</td><td><input type="number" name="ump"></td>
+        </tr>
+        <tr>
+          <td>No KK</td><td><input type="text" name="kk"></td>
+          <td>Pernah dapat BSPS</td>
+          <td>
+            <select name="pernah_bsps"><option value="Ya">Ya</option><option value="Tidak">Tidak</option></select>
+          </td>
+        </tr>
+        <tr>
+          <td>Jenis Kelamin</td>
+          <td>
+            <select name="jk"><option value="L">Laki-laki</option><option value="P">Perempuan</option></select>
+          </td>
+          <td>Tahun dapat BSPS</td><td><input type="number" name="tahun_bsps" value="0"></td>
+        </tr>
+        <tr>
+          <td>Umur</td><td><input type="number" name="umur"></td>
+          <td>Berapa tahun menempati rumah</td><td><input type="number" name="lama_huni"></td>
+        </tr>
+        <tr>
+          <td>Alamat</td><td><input type="text" name="alamat"></td>
+          <td>Memiliki aset rumah lainnya</td>
+          <td><select name="aset_rumah"><option value="Ya">Ya</option><option value="Tidak">Tidak</option></select></td>
+        </tr>
+        <tr>
+          <td>RT/RW</td><td><input type="text" name="rt_rw"></td>
+          <td>Jumlah penghuni (jiwa)</td><td><input type="number" name="jml_penghuni"></td>
+        </tr>
+        <tr>
+          <td>Desa/Kelurahan</td><td><input type="text" name="desa"></td>
+          <td>Luas rumah (m²)</td><td><input type="number" name="luas_rumah"></td>
+        </tr>
+        <tr>
+          <td>Kecamatan</td><td><input type="text" name="kecamatan"></td>
+          <td>Bersedia mengikuti program</td>
+          <td><select name="bersedia"><option value="Ya">Ya</option><option value="Tidak">Tidak</option></select></td>
+        </tr>
+        <tr>
+          <td>Kabupaten/Kota</td><td><input type="text" name="kabupaten"></td>
+          <td>Titik Koordinat</td><td><input type="text" name="koordinat"></td>
+        </tr>
+        <tr>
+          <td>Provinsi</td><td><input type="text" name="provinsi"></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+    </fieldset>
 
-      <!-- Struktur -->
-      <h3>1. Struktur</h3>
-      <label>Pondasi:</label>
-      <div class="inline">
-        <label><input type="radio" name="pondasi" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
-        <label><input type="radio" name="pondasi" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
-        <label><input type="radio" name="pondasi" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
-      </div>
+    <!-- Checklist Kondisi Rumah -->
+    <!-- (gunakan versi tabel A/B/C yang sudah saya buat sebelumnya) -->
 
-      <label>Sloof / Balok Bawah:</label>
-      <div class="inline">
-        <label><input type="radio" name="sloof" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
-        <label><input type="radio" name="sloof" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
-        <label><input type="radio" name="sloof" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
-      </div>
-
-      <label>Kolom:</label>
-      <div class="inline">
-        <label><input type="radio" name="kolom" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
-        <label><input type="radio" name="kolom" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
-        <label><input type="radio" name="kolom" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
-      </div>
-
-      <label>Ring Balok:</label>
-      <div class="inline">
-        <label><input type="radio" name="ring_balok" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
-        <label><input type="radio" name="ring_balok" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
-        <label><input type="radio" name="ring_balok" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
-      </div>
-
-      <label>Rangka Atap:</label>
-      <div class="inline">
-        <label><input type="radio" name="rangka_atap" value="A - ada, kondisi baik, kokoh"> A - ada, kondisi baik, kokoh</label>
-        <label><input type="radio" name="rangka_atap" value="B - ada, sebagian rusak, tidak kokoh"> B - ada, sebagian rusak, tidak kokoh</label>
-        <label><input type="radio" name="rangka_atap" value="C - tidak ada, seluruhnya rapuh"> C - tidak ada, seluruhnya rapuh</label>
-      </div>
-
-      <!-- Non-Struktur -->
-      <h3>2. Non-Struktur</h3>
-      <label>Dinding:</label>
-      <div class="inline">
-        <label><input type="radio" name="dinding" value="A - tembok permanen, kondisi baik"> A - tembok permanen, kondisi baik</label>
-        <label><input type="radio" name="dinding" value="B - tembok sebagian rusak / semi permanen"> B - tembok sebagian rusak / semi permanen</label>
-        <label><input type="radio" name="dinding" value="C - anyaman bambu/triplek tipis"> C - anyaman bambu/triplek tipis</label>
-      </div>
-
-      <label>Lantai:</label>
-      <div class="inline">
-        <label><input type="radio" name="lantai" value="A - keramik/plester, kondisi baik"> A - keramik/plester, kondisi baik</label>
-        <label><input type="radio" name="lantai" value="B - plester sebagian rusak, belum keramik"> B - plester sebagian rusak, belum keramik</label>
-        <label><input type="radio" name="lantai" value="C - tanah / papan rapuh"> C - tanah / papan rapuh</label>
-      </div>
-
-      <label>Penutup Atap:</label>
-      <div class="inline">
-        <label><input type="radio" name="atap" value="A - genteng, baik, tidak bocor"> A - genteng, baik, tidak bocor</label>
-        <label><input type="radio" name="atap" value="B - genteng/seng/asbes, sebagian rusak, bocor"> B - genteng/seng/asbes, sebagian rusak, bocor</label>
-        <label><input type="radio" name="atap" value="C - daun/seng rusak, bocor parah"> C - daun/seng rusak, bocor parah</label>
-      </div>
-
-      <!-- Kesehatan & Kecukupan Luas -->
-      <h3>3. Kesehatan & Kecukupan Luas</h3>
-      <label>Akses Air Minum:</label>
-      <div class="inline">
-        <label><input type="radio" name="air" value="A - ada"> A - ada</label>
-        <label><input type="radio" name="air" value="B - ada, akses jauh/terbatas"> B - ada, akses jauh/terbatas</label>
-        <label><input type="radio" name="air" value="C - tidak ada"> C - tidak ada</label>
-      </div>
-
-      <label>Akses Sanitasi:</label>
-      <div class="inline">
-        <label><input type="radio" name="sanitasi" value="A - ada"> A - ada</label>
-        <label><input type="radio" name="sanitasi" value="B - ada, tidak dapat digunakan bersama"> B - ada, tidak dapat digunakan bersama</label>
-        <label><input type="radio" name="sanitasi" value="C - tidak ada"> C - tidak ada</label>
-      </div>
-
-      <label>Pencahayaan:</label>
-      <div class="inline">
-        <label><input type="radio" name="pencahayaan" value="A - cukup sesuai standar"> A - cukup sesuai standar</label>
-        <label><input type="radio" name="pencahayaan" value="B - kurang, terlalu sempit"> B - kurang, terlalu sempit</label>
-        <label><input type="radio" name="pencahayaan" value="C - tidak ada ventilasi"> C - tidak ada ventilasi</label>
-      </div>
-
-      <label>Penghawaan:</label>
-      <div class="inline">
-        <label><input type="radio" name="penghawaan" value="A - lancar, ventilasi cukup"> A - lancar, ventilasi cukup</label>
-        <label><input type="radio" name="penghawaan" value="B - kurang lancar, lembab"> B - kurang lancar, lembab</label>
-        <label><input type="radio" name="penghawaan" value="C - tidak ada ventilasi"> C - tidak ada ventilasi</label>
-      </div>
-
-      <label>Kecukupan Luas:</label>
-      <div class="inline">
-        <label><input type="radio" name="luas" value="A - ≥ 7.2 m²/jiwa"> A - ≥ 7.2 m²/jiwa</label>
-        <label><input type="radio" name="luas" value="B - < 7.2 m²/jiwa"> B - < 7.2 m²/jiwa</label>
-      </div>
-
-      <!-- Status Lahan -->
-      <h3>4. Status Lahan</h3>
-      <div class="inline">
-        <label><input type="radio" name="status_lahan" value="A - milik sendiri, ada bukti sah"> A - milik sendiri, ada bukti sah</label>
-        <label><input type="radio" name="status_lahan" value="B - sewa/menumpang, ada bukti sah"> B - sewa/menumpang, ada bukti sah</label>
-        <label><input type="radio" name="status_lahan" value="C - tanpa bukti sah/ilegal"> C - tanpa bukti sah/ilegal</label>
-      </div>
+    <!-- Upload Foto -->
+    <fieldset>
+      <legend>Upload Dokumen & Foto</legend>
+      <table class="upload-table">
+        <tr><td>Foto KTP</td><td><input type="file" name="foto_ktp" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Foto KK</td><td><input type="file" name="foto_kk" accept="image/*" capture="environment"></td></tr>
+        <tr><td>TFL Selfi Depan Rumah</td><td><input type="file" name="tfl_selfi" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Foto Tampak Depan</td><td><input type="file" name="foto_depan" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Foto Tampak Menyamping</td><td><input type="file" name="foto_menyamping" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Foto Tampak Kiri</td><td><input type="file" name="foto_kiri" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Foto Tampak Kanan</td><td><input type="file" name="foto_kanan" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Foto Tampak Belakang</td><td><input type="file" name="foto_belakang" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Denah</td><td><input type="file" name="denah" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Fondasi</td><td><input type="file" name="fondasi" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Sloof / Balok Bawah</td><td><input type="file" name="sloof" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Kolom</td><td><input type="file" name="kolom" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Ring Balok</td><td><input type="file" name="ring_balok" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Rangka Atap</td><td><input type="file" name="rangka_atap" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Dinding</td><td><input type="file" name="dinding" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Lantai</td><td><input type="file" name="lantai" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Penutup Atap</td><td><input type="file" name="penutup_atap" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Akses Air Minum</td><td><input type="file" name="akses_air" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Akses Sanitasi</td><td><input type="file" name="akses_sanitasi" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Pencahayaan & Penghawaan</td><td><input type="file" name="pencahayaan_penghawaan" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Kayu</td><td><input type="file" name="kayu" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Balok Kayu</td><td><input type="file" name="balok_kayu" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Kusen</td><td><input type="file" name="kusen" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Daun Pintu</td><td><input type="file" name="daun_pintu" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Jendela</td><td><input type="file" name="jendela" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Genteng</td><td><input type="file" name="genteng" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Batu Bata</td><td><input type="file" name="batu_bata" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Lainnya</td><td><input type="file" name="lainnya" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Kayu (Material)</td><td><input type="file" name="material_kayu" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Genteng (Material)</td><td><input type="file" name="material_genteng" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Batu Bata (Material)</td><td><input type="file" name="material_batubata" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Pasir</td><td><input type="file" name="pasir" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Kerikil</td><td><input type="file" name="kerikil" accept="image/*" capture="environment"></td></tr>
+        <tr><td>Lainnya (Material)</td><td><input type="file" name="material_lain2" accept="image/*" capture="environment"></td></tr>
+      </table>
     </fieldset>
 
     <button type="submit">Kirim Data</button>
