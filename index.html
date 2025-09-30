@@ -183,7 +183,22 @@
             <label><input type="radio" name="pondasi" value="C"> Tidak ada/rapuh</label>
           </td>
         </tr>
-        <!-- tambahkan baris lain sesuai kebutuhan -->
+        <tr>
+          <td>Dinding</td>
+          <td>
+            <label><input type="radio" name="dinding" value="A"> Permanen</label><br>
+            <label><input type="radio" name="dinding" value="B"> Semi permanen</label><br>
+            <label><input type="radio" name="dinding" value="C"> Rapuh</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Lantai</td>
+          <td>
+            <label><input type="radio" name="lantai" value="A"> Keramik</label><br>
+            <label><input type="radio" name="lantai" value="B"> Plester sebagian</label><br>
+            <label><input type="radio" name="lantai" value="C"> Tanah</label>
+          </td>
+        </tr>
       </table>
     </fieldset>
 
@@ -194,7 +209,7 @@
   <script>
     const form = document.getElementById("verlapForm");
     const loading = document.getElementById("loading");
-    const scriptURL = "PASTE_YOUR_APPS_SCRIPT_URL"; // ganti URL dari Google Apps Script
+    const scriptURL = "PASTE_YOUR_APPS_SCRIPT_URL"; // ganti dengan URL Web App dari Google Apps Script
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
