@@ -27,7 +27,11 @@
     table.form-table td:nth-child(2) { width: 30%;}
     table.form-table td:nth-child(3) { width: 20%; font-weight: bold; color: var(--primary);}
     table.form-table td:nth-child(4) { width: 30%;}
-    table.upload-table td { padding: 8px; }
+    table.checklist, table.upload-table { width: 100%; border-collapse: collapse; margin-top: 15px;}
+    table.checklist th, table.checklist td, table.upload-table td { border: 1px solid #ccc; padding: 8px; font-size: 14px;}
+    table.checklist th { background: var(--primary); color: white; text-align: center;}
+    tr:nth-child(even) { background: #f4f4f4;}
+    td.option { width: 30%; }
     button { margin-top: 25px; width: 100%; padding: 14px; background: var(--primary); color: white; font-weight: bold; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;}
     button:hover { background: var(--accent); color: var(--primary);}
     #loading { display:none; margin-top:15px; text-align:center; color:var(--primary); font-weight:bold; }
@@ -57,15 +61,11 @@
         <tr>
           <td>No KK</td><td><input type="text" name="kk"></td>
           <td>Pernah dapat BSPS</td>
-          <td>
-            <select name="pernah_bsps"><option value="Ya">Ya</option><option value="Tidak">Tidak</option></select>
-          </td>
+          <td><select name="pernah_bsps"><option value="Ya">Ya</option><option value="Tidak">Tidak</option></select></td>
         </tr>
         <tr>
           <td>Jenis Kelamin</td>
-          <td>
-            <select name="jk"><option value="L">Laki-laki</option><option value="P">Perempuan</option></select>
-          </td>
+          <td><select name="jk"><option value="L">Laki-laki</option><option value="P">Perempuan</option></select></td>
           <td>Tahun dapat BSPS</td><td><input type="number" name="tahun_bsps" value="0"></td>
         </tr>
         <tr>
@@ -102,7 +102,12 @@
     </fieldset>
 
     <!-- Checklist Kondisi Rumah -->
-    <!-- (gunakan versi tabel A/B/C yang sudah saya buat sebelumnya) -->
+    <fieldset>
+      <legend>Checklist Kondisi Rumah</legend>
+      <!-- gunakan tabel A/B/C yang sudah disusun (Struktur, Non-Struktur, Kesehatan, Status Lahan) -->
+      <!-- (kode checklist A/B/C panjang → sudah dibuat sebelumnya, bisa langsung disisipkan di sini) -->
+      <p><em>[Tabel checklist A/B/C sesuai versi sebelumnya ditempatkan di sini]</em></p>
+    </fieldset>
 
     <!-- Upload Foto -->
     <fieldset>
